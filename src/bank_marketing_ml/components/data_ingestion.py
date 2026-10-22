@@ -34,7 +34,7 @@ class Dataingestion:
                     f"Collection name must not be empty: {self.config.collection_name}"
                 )
             collection = client.database[self.config.collection_name]
-            data = list(collection)
+            data = list(collection.find())
 
             if not data:
                 raise ValueError("Collection is empty..")
@@ -87,6 +87,13 @@ class Dataingestion:
                     if self.config.INGESTION_PARAMS.stratify
                     else None,
                 )
+                logger.info(
+                    f"Shape of test dataset, Rows: {test.shape[0]}, Columns: {test.shape[1]}"
+                )
+
+                logger.info(
+                    f"Shape of train dataset, Rows: {train.shape[0]}, Columns: {train.shape[1]}"
+                )
 
                 logger.info("Saving the train and test into the artifacts folder..")
                 self.config.ingested_dir.mkdir(exist_ok=True)
@@ -112,16 +119,10 @@ class Dataingestion:
                     artifact_path="feature_data",
                 )
 
-                mlflow.log_metrics(
-                    {
-                        "test_size": self.config.INGESTION_PARAMS.test_size,
-                        "random_state": self.config.INGESTION_PARAMS.random_state,
-                        "stratify": self.config.INGESTION_PARAMS.stratify,
-                        "target": self.config.target,
-                        "database": self.config.database_name,
-                        "collection": self.config.collection_name,
-                    }
-                )
+                mlflow.log_metrics({
+                    "test_size": float(self.config.INGESTION_PARAMS.test_size),
+                    "random_state": int(self.config.INGESTION_PARAMS.random_state),
+                })
 
                 if not train.empty and not test.empty:
                     mlflow.set_tag("Status", "Pass")
