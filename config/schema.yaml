@@ -1,0 +1,11 @@
+MONGO_KEYS:
+  database_name: bank_marketing
+  collection_name: marketing_data
+
+TARGET_COLUMN:
+  name: deposit
+
+DROP_COLUMN:
+  - _id
+  - duration
+
