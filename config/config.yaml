@@ -1,0 +1,38 @@
+artifacts_root: artifacts
+
+data_ingestion:
+  root_dir: artifacts/data_ingestion/
+  feature_dir: artifacts/data_ingestion/feature_store/
+  ingested_dir: artifacts/data_ingestion/ingested/
+
+data_validation:
+  root_dir: artifacts/data_validation/
+  train_path: artifacts/data_ingestion/ingested/train.csv
+  test_path: artifacts/data_ingestion/ingested/test.csv
+  drift_path: artifacts/data_validation/drift_report/
+  STATUS_FILE: artifacts/data_validation/validation_status/status.json
+
+data_transformation:
+  root_dir: artifacts/data_transformation/
+  train_path: artifacts/data_ingestion/ingested/train.csv
+  test_path: artifacts/data_ingestion/ingested/test.csv
+  preprocessor_name: preprocessor.joblib
+
+model_trainer:
+  root_dir: artifacts/model_trainer/
+  train_arr: artifacts/data_transformation/train_arr.npy
+  model_name: model.joblib
+
+model_evaluation:
+  root_dir: artifacts/model_evaluation/
+  test_arr: artifacts/model_evaluation/test_arr.npy
+  model_path: artifacts/model_trainer/model.joblib
+  metrics_file_path: artifacts/model_evaluation/metrics.json
+
+model_pusher:
+  root_dir: artifacts/model_pusher
+  model_dir: artifacts/model_trainer/
+  model_name: model.joblib
+  model_format: joblib
+  export_dir: artifacts/model_pusher/exported_model
+  export_model_name: bank_marketing_model.joblib
