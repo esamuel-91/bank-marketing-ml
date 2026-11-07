@@ -38,6 +38,7 @@ class ConfigurationManager:
             ingested_data=Path(config.ingested_data),
             database_name=schema.MONGO_KEYS.database_name,
             collection_name=schema.MONGO_KEYS.collection_name,
+            drop_columns = schema.DROP_COLUMNS,
             target=schema.TARGET_COLUMN.name,
             INGESTION_PARAMS=params,
         )

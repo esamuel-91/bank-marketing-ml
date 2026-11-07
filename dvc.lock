@@ -6,13 +6,13 @@ stages:
     deps:
     - path: config
       hash: md5
-      md5: 38717fde31a7378c7f14da83249c2efe.dir
-      size: 1692
+      md5: 1bd29f2dea6dea150ad3b4bb0bab78ad.dir
+      size: 2276
       nfiles: 3
     - path: src/bank_marketing_ml/components/data_ingestion.py
       hash: md5
-      md5: 32d3317ce43d2bc629841b2702187c35
-      size: 6127
+      md5: 0d7b93371d4253eaadb0fd7726780ec9
+      size: 6146
     - path: src/bank_marketing_ml/pipeline/stage_01_data_ingestion.py
       hash: md5
       md5: d0cdd27c28775858e6498fa9e1dd7946
@@ -25,11 +25,43 @@ stages:
     outs:
     - path: artifacts/data_ingestion/feature_store
       hash: md5
-      md5: 7c82394416e02e113352b5b7a8c5acc1.dir
+      md5: 83f2ea52a4687f94a148aaeabdedd999.dir
       size: 1198014
       nfiles: 1
     - path: artifacts/data_ingestion/ingested_data
       hash: md5
-      md5: 22b90f9a236e1d33b805eddcf4a33647.dir
-      size: 919083
+      md5: 4735f1c87f8167a089cba63fc9a9e6f4.dir
+      size: 853005
       nfiles: 2
+  data_validation:
+    cmd: uv run src/bank_marketing_ml/pipeline/training_pipeline.py 
+      data_validation
+    deps:
+    - path: config
+      hash: md5
+      md5: 1bd29f2dea6dea150ad3b4bb0bab78ad.dir
+      size: 2276
+      nfiles: 3
+    - path: src/bank_marketing_ml/components/data_validation.py
+      hash: md5
+      md5: 2dbfa0810b73db31c0e6f08f0e237911
+      size: 9459
+    - path: src/bank_marketing_ml/pipeline/stage_02_data_validation.py
+      hash: md5
+      md5: 4927324ad0e3c24e251a2e9db3853836
+      size: 501
+    params:
+      config/params.yaml:
+        VALIDATION.drift_share_threshold: 0.5
+        VALIDATION.missing_rate: 0.2
+    outs:
+    - path: artifacts/data_validation/drift_report/
+      hash: md5
+      md5: 6c45848e98717a7402f7891eaad64f83.dir
+      size: 4356302
+      nfiles: 2
+    - path: artifacts/data_validation/validation_status/
+      hash: md5
+      md5: 4ed412af52aa27c6ca881e3b0662e2c6.dir
+      size: 380
+      nfiles: 1

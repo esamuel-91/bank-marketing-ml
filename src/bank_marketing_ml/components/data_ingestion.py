@@ -75,7 +75,7 @@ class DataIngestion:
                 df.to_csv(self.config.feature_dir, index=False)
 
                 logger.info(f"Dropping index column from the dataframe..")
-                df.drop("_id", axis=1, inplace=True)
+                df.drop(self.config.drop_columns, axis=1, inplace=True)
 
                 logger.info("Splitting the data into train and test dataframes.")
                 train, test = train_test_split(

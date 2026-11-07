@@ -2,3 +2,7 @@ INGESTION:
   test_size: 0.30
   random_state: 38
   stratify: true
+
+VALIDATION:
+  drift_share_threshold: 0.5
+  missing_rate: 0.20

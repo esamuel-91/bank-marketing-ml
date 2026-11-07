@@ -1,0 +1,19 @@
+{
+    "validation_status": true,
+    "schema": {
+        "train": {
+            "validation_status": true,
+            "errors": []
+        },
+        "test": {
+            "validation_status": true,
+            "errors": []
+        }
+    },
+    "drift": {
+        "drift_detected": false,
+        "drift_share": 0.0,
+        "drift_columns": 0.0,
+        "threshold": 0.5
+    }
+}

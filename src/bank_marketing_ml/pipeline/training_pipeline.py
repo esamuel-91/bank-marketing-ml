@@ -1,9 +1,9 @@
 from src.bank_marketing_ml.exception import BankMarketingException
 from src.bank_marketing_ml import logger
 
-from src.bank_marketing_ml.pipeline.stage_01_data_ingestion import (
-    DataIngestionTrainingPipeline,
-)
+from src.bank_marketing_ml.pipeline.stage_01_data_ingestion import DataIngestionTrainingPipeline
+from src.bank_marketing_ml.pipeline.stage_02_data_validation import DataValidationTrainingPipeline
+
 
 import argparse
 import mlflow
@@ -13,7 +13,14 @@ import sys
 class TrainingPipeline:
     def __init__(self) -> None:
         self.stages = {
-            "data_ingestion": ("Data Ingestion Stage", DataIngestionTrainingPipeline)
+            "data_ingestion":(
+                "Data Ingestion Stage", 
+                DataIngestionTrainingPipeline
+            ),
+            "data_validation":(
+                "Data Validation Stage", 
+                DataValidationTrainingPipeline
+            ),
         }
 
     def run_stage(self, stage_name: str):

@@ -10,6 +10,7 @@ class DataIngestionConfig:
     database_name: str
     collection_name: str
     target: str
+    drop_columns: list
     INGESTION_PARAMS: dict
 
 

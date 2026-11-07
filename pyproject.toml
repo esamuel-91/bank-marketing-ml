@@ -25,7 +25,7 @@ dependencies = [
     "nbformat>=5.11.1",
     "numpy>=2.5.4",
     "optuna>=5.0.0",
-    "pandas<=3.1",
+    "pandas<3",
     "plotly>=5.24.1",
     "pymongo>=4.19.0",
     "python-box>=8.0.0",

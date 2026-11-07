@@ -16,4 +16,20 @@ stages:
     outs:
       - artifacts/data_ingestion/feature_store
       - artifacts/data_ingestion/ingested_data
-    
+  
+  data_validation:
+    cmd: uv run src/bank_marketing_ml/pipeline/training_pipeline.py data_validation
+
+    deps:
+      - src/bank_marketing_ml/components/data_validation.py
+      - src/bank_marketing_ml/pipeline/stage_02_data_validation.py
+      - config
+
+    params:
+      - config/params.yaml:
+        - VALIDATION.drift_share_threshold
+        - VALIDATION.missing_rate
+
+    outs:
+      - artifacts/data_validation/drift_report/
+      - artifacts/data_validation/validation_status/

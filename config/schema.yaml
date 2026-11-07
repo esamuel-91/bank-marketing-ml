@@ -5,3 +5,45 @@ MONGO_KEYS:
 TARGET_COLUMN:
   name: deposit
 
+DROP_COLUMNS:
+  - _id
+  - duration
+  - previous
+
+COLUMNS:
+  age: int64
+  job: str
+  marital: str
+  education: str
+  default: str
+  balance: int64
+  housing: str
+  loan: str
+  contact: str
+  day: int64
+  month: str
+  campaign: int64
+  pdays: int64
+  poutcome: str
+  deposit: str
+
+categorical_columns:
+  - job
+  - marital
+  - education
+  - default
+  - housing
+  - loan
+  - contact
+  - month
+  - poutcome
+
+numerical_columns:
+  - age
+  - balance
+  - day
+  - campaign
+  - pdays
+
+cat_imputer: most_frequent
+num_imputer: median
