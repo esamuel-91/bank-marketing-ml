@@ -1,0 +1,35 @@
+schema: '2.0'
+stages:
+  data_ingestion:
+    cmd: uv run src/bank_marketing_ml/pipeline/training_pipeline.py 
+      data_ingestion
+    deps:
+    - path: config
+      hash: md5
+      md5: b620d746be3ef1f086b0c551c1abd5ca.dir
+      size: 1750
+      nfiles: 3
+    - path: src/bank_marketing_ml/components/data_ingestion.py
+      hash: md5
+      md5: 2aad6c8d4b15ba3498f95b305f65c51d
+      size: 6162
+    - path: src/bank_marketing_ml/pipeline/stage_01_data_ingestion.py
+      hash: md5
+      md5: d0cdd27c28775858e6498fa9e1dd7946
+      size: 491
+    params:
+      config/params.yaml:
+        INGESTION.random_state: 42
+        INGESTION.stratify: true
+        INGESTION.test_size: 0.3
+    outs:
+    - path: artifacts/data_ingestion/feature_store/
+      hash: md5
+      md5: 83f2ea52a4687f94a148aaeabdedd999.dir
+      size: 1198014
+      nfiles: 1
+    - path: artifacts/data_ingestion/ingested_data/
+      hash: md5
+      md5: a27e8ba0ebd3b948b3583dab2218544c.dir
+      size: 853005
+      nfiles: 2

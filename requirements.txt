@@ -1,0 +1,21 @@
+flask
+numpy
+pandas < 3.1
+seaborn
+matplotlib
+scikit-learn
+plotly
+scipy
+evidently
+pymongo
+from_root
+xgboost
+catboost
+uvicorn
+jinja2
+python-box
+ensure
+joblib
+pyYAML
+types-pyYAML
+mlflow

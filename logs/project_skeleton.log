@@ -1,0 +1,78 @@
+[2026-11-13 23:02:00,544]: Directory created: src/bank_marketing_ml for file: __init__.py
+[2026-11-13 23:02:00,544]: src/bank_marketing_ml/__init__.py already exists!
+[2026-11-13 23:02:00,544]: Directory created: src/bank_marketing_ml/components for file: __init__.py
+[2026-11-13 23:02:00,544]: Created an empty file: __init__.py
+[2026-11-13 23:02:00,544]: Directory created: src/bank_marketing_ml/components for file: data_ingestion.py
+[2026-11-13 23:02:00,545]: Created an empty file: data_ingestion.py
+[2026-11-13 23:02:00,545]: Directory created: src/bank_marketing_ml/components for file: data_validation.py
+[2026-11-13 23:02:00,545]: Created an empty file: data_validation.py
+[2026-11-13 23:02:00,545]: Directory created: src/bank_marketing_ml/components for file: data_transformation.py
+[2026-11-13 23:02:00,545]: Created an empty file: data_transformation.py
+[2026-11-13 23:02:00,545]: Directory created: src/bank_marketing_ml/components for file: model_trainer.py
+[2026-11-13 23:02:00,545]: Created an empty file: model_trainer.py
+[2026-11-13 23:02:00,545]: Directory created: src/bank_marketing_ml/components for file: model_evaluation.py
+[2026-11-13 23:02:00,546]: Created an empty file: model_evaluation.py
+[2026-11-13 23:02:00,546]: Directory created: src/bank_marketing_ml/components for file: model_pusher.py
+[2026-11-13 23:02:00,546]: Created an empty file: model_pusher.py
+[2026-11-13 23:02:00,546]: Directory created: src/bank_marketing_ml/pipeline for file: __init__.py
+[2026-11-13 23:02:00,546]: Created an empty file: __init__.py
+[2026-11-13 23:02:00,546]: Directory created: src/bank_marketing_ml/pipeline for file: prediction_pipeline.py
+[2026-11-13 23:02:00,546]: Created an empty file: prediction_pipeline.py
+[2026-11-13 23:02:00,546]: Directory created: src/bank_marketing_ml/pipeline for file: training_pipeline.py
+[2026-11-13 23:02:00,546]: Created an empty file: training_pipeline.py
+[2026-11-13 23:02:00,546]: Directory created: src/bank_marketing_ml/pipeline for file: stage_01_data_ingestion.py
+[2026-11-13 23:02:00,547]: Created an empty file: stage_01_data_ingestion.py
+[2026-11-13 23:02:00,547]: Directory created: src/bank_marketing_ml/pipeline for file: stage_02_data_validation.py
+[2026-11-13 23:02:00,547]: Created an empty file: stage_02_data_validation.py
+[2026-11-13 23:02:00,547]: Directory created: src/bank_marketing_ml/pipeline for file: stage_03_data_transformation.py
+[2026-11-13 23:02:00,547]: Created an empty file: stage_03_data_transformation.py
+[2026-11-13 23:02:00,547]: Directory created: src/bank_marketing_ml/pipeline for file: stage_04_model_trainer.py
+[2026-11-13 23:02:00,547]: Created an empty file: stage_04_model_trainer.py
+[2026-11-13 23:02:00,547]: Directory created: src/bank_marketing_ml/pipeline for file: stage_05_model_evaluation.py
+[2026-11-13 23:02:00,547]: Created an empty file: stage_05_model_evaluation.py
+[2026-11-13 23:02:00,547]: Directory created: src/bank_marketing_ml/pipeline for file: stage_06_model_pusher.py
+[2026-11-13 23:02:00,548]: Created an empty file: stage_06_model_pusher.py
+[2026-11-13 23:02:00,548]: Directory created: src/bank_marketing_ml/utils for file: __init__.py
+[2026-11-13 23:02:00,548]: Created an empty file: __init__.py
+[2026-11-13 23:02:00,548]: Directory created: src/bank_marketing_ml/utils for file: utils_main.py
+[2026-11-13 23:02:00,548]: Created an empty file: utils_main.py
+[2026-11-13 23:02:00,548]: Directory created: src/bank_marketing_ml/entity for file: __init__.py
+[2026-11-13 23:02:00,548]: Created an empty file: __init__.py
+[2026-11-13 23:02:00,548]: Directory created: src/bank_marketing_ml/entity for file: config_entity.py
+[2026-11-13 23:02:00,549]: Created an empty file: config_entity.py
+[2026-11-13 23:02:00,549]: Directory created: src/bank_marketing_ml/constants for file: __init__.py
+[2026-11-13 23:02:00,549]: Created an empty file: __init__.py
+[2026-11-13 23:02:00,549]: Directory created: src/bank_marketing_ml/exception for file: __init__.py
+[2026-11-13 23:02:00,549]: Created an empty file: __init__.py
+[2026-11-13 23:02:00,549]: Directory created: src/bank_marketing_ml/config for file: __init__.py
+[2026-11-13 23:02:00,549]: Created an empty file: __init__.py
+[2026-11-13 23:02:00,549]: Directory created: src/bank_marketing_ml/config for file: configuration.py
+[2026-11-13 23:02:00,550]: Created an empty file: configuration.py
+[2026-11-13 23:02:00,550]: Directory created: src/bank_marketing_ml/config for file: aws_connection.py
+[2026-11-13 23:02:00,550]: Created an empty file: aws_connection.py
+[2026-11-13 23:02:00,550]: Directory created: src/bank_marketing_ml/config for file: mongodb_connection.py
+[2026-11-13 23:02:00,550]: Created an empty file: mongodb_connection.py
+[2026-11-13 23:02:00,550]: Directory created: .github/workflows for file: .gitkeep
+[2026-11-13 23:02:00,550]: Created an empty file: .gitkeep
+[2026-11-13 23:02:00,550]: Directory created: config for file: config.yaml
+[2026-11-13 23:02:00,550]: Created an empty file: config.yaml
+[2026-11-13 23:02:00,551]: Directory created: config for file: params.yaml
+[2026-11-13 23:02:00,551]: Created an empty file: params.yaml
+[2026-11-13 23:02:00,551]: Directory created: config for file: schema.yaml
+[2026-11-13 23:02:00,551]: Created an empty file: schema.yaml
+[2026-11-13 23:02:00,551]: Created an empty file: Dockerfile
+[2026-11-13 23:02:00,551]: Created an empty file: app.py
+[2026-11-13 23:02:00,551]: Created an empty file: test.py
+[2026-11-13 23:02:00,551]: Created an empty file: requirements_dev.txt
+[2026-11-13 23:02:00,552]: Created an empty file: requirements.txt
+[2026-11-13 23:02:00,552]: Directory created: research for file: eda.ipynb
+[2026-11-13 23:02:00,552]: Created an empty file: eda.ipynb
+[2026-11-13 23:02:00,552]: Directory created: research for file: trials.ipynb
+[2026-11-13 23:02:00,552]: Created an empty file: trials.ipynb
+[2026-11-13 23:02:00,552]: Directory created: templates for file: form.html
+[2026-11-13 23:02:00,553]: Created an empty file: form.html
+[2026-11-13 23:02:00,553]: Directory created: templates for file: index.html
+[2026-11-13 23:02:00,553]: Created an empty file: index.html
+[2026-11-13 23:02:00,553]: Directory created: templates for file: result.html
+[2026-11-13 23:02:00,553]: Created an empty file: result.html
+[2026-11-13 23:02:00,553]: Created an empty file: dvc.yaml

@@ -1,0 +1,22 @@
+[2026-11-14 02:40:43,263] INFO - training_pipeline: >>>>> Data Ingestion Stage started <<<<<
+[2026-11-14 02:40:43,265] INFO - utils_main: YAML file loaded successfully from: /Users/egglisten/ai-workspaces/bank-marketing-ml/config/config.yaml
+[2026-11-14 02:40:43,266] INFO - utils_main: YAML file loaded successfully from: /Users/egglisten/ai-workspaces/bank-marketing-ml/config/params.yaml
+[2026-11-14 02:40:43,267] INFO - utils_main: YAML file loaded successfully from: /Users/egglisten/ai-workspaces/bank-marketing-ml/config/schema.yaml
+[2026-11-14 02:40:43,267] INFO - utils_main: Directory created: artifacts
+[2026-11-14 02:40:43,267] INFO - utils_main: Directory created: artifacts/data_ingestion/
+[2026-11-14 02:40:43,273] INFO - data_ingestion: Getting the collected collection data as list.
+[2026-11-14 02:40:43,273] INFO - data_ingestion: Establishing connection to the specific database: bank_marketing
+[2026-11-14 02:40:43,273] INFO - mongodb_connection: Loading the URI key..
+[2026-11-14 02:40:43,273] INFO - mongodb_connection: Connecting to the client using URI key..
+[2026-11-14 02:40:43,421] INFO - mongodb_connection: Checking the client connection using ping command.
+[2026-11-14 02:40:44,808] INFO - mongodb_connection: Successfully connected to specific Mongo Database: bank_marketing
+[2026-11-14 02:40:45,488] INFO - data_ingestion: Creating dataframe from the collected data..
+[2026-11-14 02:40:45,533] INFO - data_ingestion: Shape of the dataframe; Rows: 11162, Columns: 18
+[2026-11-14 02:40:45,533] INFO - data_ingestion: Saving the raw artifact into the artifacts folder..
+[2026-11-14 02:40:45,567] INFO - data_ingestion: Dropping the unwanted columns from the raw dataframe..
+[2026-11-14 02:40:45,579] INFO - data_ingestion: Splitting the dataset into train and test
+[2026-11-14 02:40:45,639] INFO - data_ingestion: Shape of the train dataframe; Rows: 7813, Columns: 15
+[2026-11-14 02:40:45,639] INFO - data_ingestion: Shape of the test dataframe; Rows: 3349, Columns: 15
+[2026-11-14 02:40:45,639] INFO - data_ingestion: Saving the train and test artifacts into the artifacts folder..
+[2026-11-14 02:40:45,683] INFO - training_pipeline: >>>>> Data Ingestion Stage completed successfully <<<<<
+x=========x

@@ -1,0 +1,18 @@
+stages:
+  data_ingestion:
+    cmd: uv run src/bank_marketing_ml/pipeline/training_pipeline.py data_ingestion
+
+    deps:
+      - src/bank_marketing_ml/pipeline/stage_01_data_ingestion.py
+      - src/bank_marketing_ml/components/data_ingestion.py
+      - config
+
+    params:
+      - config/params.yaml:
+        - INGESTION.test_size
+        - INGESTION.random_state
+        - INGESTION.stratify
+
+    outs:
+      - artifacts/data_ingestion/feature_store/
+      - artifacts/data_ingestion/ingested_data/
