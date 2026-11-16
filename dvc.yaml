@@ -1,6 +1,6 @@
 stages:
   data_ingestion:
-    cmd: un run src/bank_marketing_ml/pipeline/training_pipeline.py data_ingestion
+    cmd: uv run src/bank_marketing_ml/pipeline/training_pipeline.py data_ingestion
 
     deps:
       - src/bank_marketing_ml/components/data_ingestion.py
