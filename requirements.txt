@@ -1,0 +1,22 @@
+flask
+numpy
+seaborn
+matplotlib
+scikit-learn
+mlflow
+pandas < 3.1
+nbformat
+from_root
+pymongo
+plotly
+scipy
+evidently
+python-box
+ensure
+pyYAML
+types-pyYAML
+xgboost
+catboost
+uvicorn
+jinja2
+dvc
