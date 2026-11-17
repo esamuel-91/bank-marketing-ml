@@ -224,3 +224,5 @@ __marimo__/
 
 logs
 research/data
+research/catboost_info
+atlas-credentials.env
