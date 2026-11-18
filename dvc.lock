@@ -6,8 +6,8 @@ stages:
     deps:
     - path: config
       hash: md5
-      md5: bf9b249c62e94a56e74a57b4aa74eac5.dir
-      size: 2338
+      md5: 681956f698efc8ad58fb8091cbc156ef.dir
+      size: 3992
       nfiles: 3
     - path: src/bank_marketing_ml/components/data_ingestion.py
       hash: md5
@@ -39,8 +39,8 @@ stages:
     deps:
     - path: config
       hash: md5
-      md5: bf9b249c62e94a56e74a57b4aa74eac5.dir
-      size: 2338
+      md5: 681956f698efc8ad58fb8091cbc156ef.dir
+      size: 3992
       nfiles: 3
     - path: src/bank_marketing_ml/components/data_validation.py
       hash: md5
@@ -57,7 +57,7 @@ stages:
     outs:
     - path: artifacts/data_validation/drift_report/
       hash: md5
-      md5: f19fd79c009ba86b4454614c5eebc8a2.dir
+      md5: 70254cf177553f3533d7f9340c24aa5e.dir
       size: 4356905
       nfiles: 2
     - path: artifacts/data_validation/validation_status/
@@ -71,8 +71,8 @@ stages:
     deps:
     - path: config
       hash: md5
-      md5: bf9b249c62e94a56e74a57b4aa74eac5.dir
-      size: 2338
+      md5: 681956f698efc8ad58fb8091cbc156ef.dir
+      size: 3992
       nfiles: 3
     - path: src/bank_marketing_ml/components/data_transformation.py
       hash: md5
@@ -99,3 +99,126 @@ stages:
       md5: da006c883c1691b9deae23e875195ec5.dir
       size: 6742
       nfiles: 2
+  model_trainer:
+    cmd: uv run src/bank_marketing_ml/pipeline/training_pipeline.py 
+      model_trainer
+    deps:
+    - path: config
+      hash: md5
+      md5: 681956f698efc8ad58fb8091cbc156ef.dir
+      size: 3992
+      nfiles: 3
+    - path: src/bank_marketing_ml/components/model_trainer.py
+      hash: md5
+      md5: 4d3af99b80bfce917a99906a8371c9f3
+      size: 14519
+    - path: src/bank_marketing_ml/pipeline/stage_04_model_trainer.py
+      hash: md5
+      md5: fabc9a59a20a428aa16f67f5cf2bc527
+      size: 479
+    params:
+      config/params.yaml:
+        MODEL_PARAMS.CatBoostClassifier:
+          iterations:
+            low: 100
+            high: 500
+          depth:
+            low: 4
+            high: 10
+          learning_rate:
+            low: 0.01
+            high: 0.3
+            log: true
+          l2_leaf_reg:
+            low: 1.0
+            high: 10.0
+          random_strength:
+            low: 0.0
+            high: 5.0
+          bagging_temperature:
+            low: 0.0
+            high: 5.0
+        MODEL_PARAMS.GradientBoostingClassifier:
+          n_estimators:
+            low: 50
+            high: 300
+          learning_rate:
+            low: 0.01
+            high: 0.3
+            log: true
+          max_depth:
+            low: 2
+            high: 8
+          subsample:
+            low: 0.6
+            high: 1.0
+          min_samples_split:
+            low: 2
+            high: 20
+          min_samples_leaf:
+            low: 1
+            high: 10
+        MODEL_PARAMS.RandomForestClassifier:
+          n_estimators:
+            low: 100
+            high: 500
+          max_depth:
+            low: 3
+            high: 30
+          min_samples_split:
+            low: 2
+            high: 20
+          min_samples_leaf:
+            low: 1
+            high: 10
+          max_features:
+            choices:
+            - sqrt
+            - log2
+          bootstrap: true
+          class_weight: balanced
+        MODEL_PARAMS.XGBClassifier:
+          n_estimators:
+            low: 100
+            high: 500
+          max_depth:
+            low: 3
+            high: 10
+          learning_rate:
+            low: 0.01
+            high: 0.3
+            log: true
+          subsample:
+            low: 0.6
+            high: 1.0
+          colsample_bytree:
+            low: 0.6
+            high: 1.0
+          gamma:
+            low: 0.0
+            high: 5.0
+          min_child_weight:
+            low: 1
+            high: 10
+          reg_alpha:
+            low: 1e-08
+            high: 10.0
+            log: true
+          reg_lambda:
+            low: 1e-08
+            high: 10.0
+            log: true
+          scale_pos_weight:
+            low: 1.0
+            high: 10.0
+        MODEL_PARAMS.cv_folds: 5
+        MODEL_PARAMS.n_jobs: 1
+        MODEL_PARAMS.n_trials: 30
+        MODEL_PARAMS.random_state: 42
+        MODEL_PARAMS.scoring: recall
+    outs:
+    - path: artifacts/model_trainer/trained_model/
+      hash: md5
+      md5: ffb4416a4fb27bd8ef5b5ba98be1ebd2.dir
+      size: 363205
+      nfiles: 1

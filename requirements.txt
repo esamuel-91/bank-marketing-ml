@@ -20,3 +20,4 @@ catboost
 uvicorn
 jinja2
 dvc
+optuna

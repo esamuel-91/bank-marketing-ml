@@ -52,3 +52,26 @@ stages:
     outs:
       - artifacts/data_transformation/transformed_arr/
       - artifacts/data_transformation/transforming_obj/
+
+  model_trainer:
+    cmd: uv run src/bank_marketing_ml/pipeline/training_pipeline.py model_trainer
+
+    deps:
+      - src/bank_marketing_ml/components/model_trainer.py
+      - src/bank_marketing_ml/pipeline/stage_04_model_trainer.py
+      - config
+
+    params:
+      - config/params.yaml:
+        - MODEL_PARAMS.random_state
+        - MODEL_PARAMS.scoring
+        - MODEL_PARAMS.cv_folds
+        - MODEL_PARAMS.n_trials
+        - MODEL_PARAMS.n_jobs
+        - MODEL_PARAMS.XGBClassifier
+        - MODEL_PARAMS.CatBoostClassifier
+        - MODEL_PARAMS.GradientBoostingClassifier
+        - MODEL_PARAMS.RandomForestClassifier
+
+    outs:
+      - artifacts/model_trainer/trained_model/

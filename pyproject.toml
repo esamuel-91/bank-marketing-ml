@@ -23,6 +23,7 @@ dependencies = [
     "mlflow>=3.18.0",
     "nbformat>=5.11.1",
     "numpy>=2.5.5",
+    "optuna>=5.1.0",
     "pandas<3.1",
     "plotly>=5.24.1",
     "pymongo>=4.20.0",
