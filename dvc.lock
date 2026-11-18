@@ -6,8 +6,8 @@ stages:
     deps:
     - path: config
       hash: md5
-      md5: 90f11a24be2cfd941efd2eea857e734a.dir
-      size: 2281
+      md5: bf9b249c62e94a56e74a57b4aa74eac5.dir
+      size: 2338
       nfiles: 3
     - path: src/bank_marketing_ml/components/data_ingestion.py
       hash: md5
@@ -39,8 +39,8 @@ stages:
     deps:
     - path: config
       hash: md5
-      md5: 90f11a24be2cfd941efd2eea857e734a.dir
-      size: 2281
+      md5: bf9b249c62e94a56e74a57b4aa74eac5.dir
+      size: 2338
       nfiles: 3
     - path: src/bank_marketing_ml/components/data_validation.py
       hash: md5
@@ -57,7 +57,7 @@ stages:
     outs:
     - path: artifacts/data_validation/drift_report/
       hash: md5
-      md5: 8a520dc32e644eb2b6e9cb89fc1a3d0c.dir
+      md5: f19fd79c009ba86b4454614c5eebc8a2.dir
       size: 4356905
       nfiles: 2
     - path: artifacts/data_validation/validation_status/
@@ -65,3 +65,37 @@ stages:
       md5: 40173a3ae7c6dd101590dd16c628d5ca.dir
       size: 395
       nfiles: 1
+  data_transformation:
+    cmd: uv run src/bank_marketing_ml/pipeline/training_pipeline.py 
+      data_transformation
+    deps:
+    - path: config
+      hash: md5
+      md5: bf9b249c62e94a56e74a57b4aa74eac5.dir
+      size: 2338
+      nfiles: 3
+    - path: src/bank_marketing_ml/components/data_transformation.py
+      hash: md5
+      md5: b26ab6bd83f1bd7d622a697282a7348c
+      size: 7042
+    - path: src/bank_marketing_ml/pipeline/stage_03_data_transformation.py
+      hash: md5
+      md5: 5bfb3380d936d14a72754a2553352f64
+      size: 541
+    params:
+      config/params.yaml:
+        TRANSFORMATION.cat_imputer: most_frequent
+        TRANSFORMATION.encoder: onehot
+        TRANSFORMATION.num_imputer: median
+        TRANSFORMATION.scaler: standard
+    outs:
+    - path: artifacts/data_transformation/transformed_arr/
+      hash: md5
+      md5: 452c872ec1818e974a113d0860e01cc3.dir
+      size: 4465056
+      nfiles: 2
+    - path: artifacts/data_transformation/transforming_obj/
+      hash: md5
+      md5: da006c883c1691b9deae23e875195ec5.dir
+      size: 6742
+      nfiles: 2

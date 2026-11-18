@@ -3,6 +3,7 @@ from src.bank_marketing_ml import logger
 
 from src.bank_marketing_ml.pipeline.stage_01_data_ingestion import DataIngestionTrainingPipeline
 from src.bank_marketing_ml.pipeline.stage_02_data_validation import DataValidationTrainingPipeline
+from src.bank_marketing_ml.pipeline.stage_03_data_transformation import DataTransformationTrainingPipeline
 
 import mlflow
 import sys 
@@ -18,6 +19,10 @@ class TrainingPipeline:
             "data_validation":(
                 'Data Validation Stage',
                 DataValidationTrainingPipeline
+            ),
+            "data_transformation":(
+                'Data Transformation Stage',
+                DataTransformationTrainingPipeline
             )
         }
 
@@ -52,7 +57,8 @@ def main():
         choices=[
             'all',
             'data_ingestion',
-            'data_validation'
+            'data_validation',
+            'data_transformation',
         ],
         help=('Specify the stage name to be initialized.')
     )

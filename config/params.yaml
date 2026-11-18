@@ -6,3 +6,9 @@ INGESTION:
 VALIDATION:
   drift_share_threshold: 0.5
   missing_rate: 0.20
+
+TRANSFORMATION:
+  scaler: standard
+  encoder: onehot
+  cat_imputer: most_frequent
+  num_imputer: median

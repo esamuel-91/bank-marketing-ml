@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/egglisten/ai-workspaces/bank-marketing-ml/src/bank_marketing_ml/components/data_transformation.py", line 173, in initiate_transformation
+    "Pass" if not train_arr.empty or not test_arr.empty else "False",
+                  ^^^^^^^^^^^^^^^
+AttributeError: 'numpy.ndarray' object has no attribute 'empty'

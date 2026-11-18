@@ -44,6 +44,3 @@ numerical_columns:
   - day
   - campaign
   - pdays
-
-cat_imputer: most_frequent
-num_imputer: median

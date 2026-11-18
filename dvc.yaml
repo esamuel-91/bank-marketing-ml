@@ -33,3 +33,22 @@ stages:
     outs:
       - artifacts/data_validation/drift_report/
       - artifacts/data_validation/validation_status/
+
+  data_transformation:
+    cmd: uv run src/bank_marketing_ml/pipeline/training_pipeline.py data_transformation
+
+    deps:
+      - src/bank_marketing_ml/components/data_transformation.py
+      - src/bank_marketing_ml/pipeline/stage_03_data_transformation.py
+      - config
+
+    params:
+      - config/params.yaml:
+        - TRANSFORMATION.scaler
+        - TRANSFORMATION.encoder
+        - TRANSFORMATION.cat_imputer
+        - TRANSFORMATION.num_imputer
+
+    outs:
+      - artifacts/data_transformation/transformed_arr/
+      - artifacts/data_transformation/transforming_obj/
