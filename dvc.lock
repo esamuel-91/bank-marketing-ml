@@ -222,3 +222,26 @@ stages:
       md5: ffb4416a4fb27bd8ef5b5ba98be1ebd2.dir
       size: 363205
       nfiles: 1
+  model_evaluation:
+    cmd: uv run src/bank_marketing_ml/pipeline/training_pipeline.py 
+      model_evaluation
+    deps:
+    - path: config
+      hash: md5
+      md5: 681956f698efc8ad58fb8091cbc156ef.dir
+      size: 3992
+      nfiles: 3
+    - path: src/bank_marketing_ml/components/model_evaluation.py
+      hash: md5
+      md5: b92a66a3574ab44f2520d0c8e5bdab36
+      size: 5006
+    - path: src/bank_marketing_ml/pipeline/stage_05_model_evaluation.py
+      hash: md5
+      md5: 92f6ff73dba285f81d041548b28297a3
+      size: 509
+    outs:
+    - path: artifacts/model_evaluation/evaluation_result/
+      hash: md5
+      md5: 07c7f968f052b79a1569caf2373b8c98.dir
+      size: 230
+      nfiles: 1

@@ -75,3 +75,14 @@ stages:
 
     outs:
       - artifacts/model_trainer/trained_model/
+
+  model_evaluation:
+    cmd: uv run src/bank_marketing_ml/pipeline/training_pipeline.py model_evaluation
+
+    deps:
+      - src/bank_marketing_ml/components/model_evaluation.py
+      - src/bank_marketing_ml/pipeline/stage_05_model_evaluation.py
+      - config
+
+    outs:
+      - artifacts/model_evaluation/evaluation_result/
