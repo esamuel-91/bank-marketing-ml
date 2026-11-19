@@ -227,3 +227,4 @@ research/data
 research/catboost_info
 atlas-credentials.env
 catboost_info
+aws-credentials.env

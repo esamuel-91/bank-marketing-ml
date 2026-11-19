@@ -48,7 +48,7 @@ stages:
         - TRANSFORMATION.encoder
         - TRANSFORMATION.cat_imputer
         - TRANSFORMATION.num_imputer
-
+        
     outs:
       - artifacts/data_transformation/transformed_arr/
       - artifacts/data_transformation/transforming_obj/

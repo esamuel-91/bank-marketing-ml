@@ -37,3 +37,4 @@ model_pusher:
   model_format: joblib
   export_dir: artifacts/model_pusher/exported_model
   export_model_name: bank_marketing_model.joblib
+  region_name: us-east-1

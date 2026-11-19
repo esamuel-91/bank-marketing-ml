@@ -8,7 +8,6 @@ TARGET_COLUMN:
 DROP_COLUMNS:
   - _id
   - duration
-  - previous
 
 COLUMNS:
   age: int64
@@ -23,6 +22,7 @@ COLUMNS:
   day: int64
   month: str
   campaign: int64
+  previous: int64
   pdays: int64
   poutcome: str
   deposit: str
@@ -44,3 +44,8 @@ numerical_columns:
   - day
   - campaign
   - pdays
+  - previous
+
+METRICS:
+  model_bucket_name: bank-marketing-model
+  model_pusher_s3_key: model-registry

@@ -71,6 +71,7 @@ def main():
             'data_transformation',
             'model_trainer',
             "model_evaluation",
+            "model_pusher",
         ],
         help=('Specify the stage name to be initialized.')
     )

@@ -6,8 +6,8 @@ stages:
     deps:
     - path: config
       hash: md5
-      md5: 681956f698efc8ad58fb8091cbc156ef.dir
-      size: 3992
+      md5: 24bd2d8cfd225a9ba8f3c1be53595c64.dir
+      size: 4208
       nfiles: 3
     - path: src/bank_marketing_ml/components/data_ingestion.py
       hash: md5
@@ -25,13 +25,13 @@ stages:
     outs:
     - path: artifacts/data_ingestion/feature_store/
       hash: md5
-      md5: 7c82394416e02e113352b5b7a8c5acc1.dir
+      md5: 83f2ea52a4687f94a148aaeabdedd999.dir
       size: 1198014
       nfiles: 1
     - path: artifacts/data_ingestion/ingested_data/
       hash: md5
-      md5: 98cab2e12416a0aba2faaff15e4af4f9.dir
-      size: 853005
+      md5: 74083e7fad92fb7af8d9cbc137aa80cc.dir
+      size: 875473
       nfiles: 2
   data_validation:
     cmd: uv run src/bank_marketing_ml/pipeline/training_pipeline.py 
@@ -39,8 +39,8 @@ stages:
     deps:
     - path: config
       hash: md5
-      md5: 681956f698efc8ad58fb8091cbc156ef.dir
-      size: 3992
+      md5: 24bd2d8cfd225a9ba8f3c1be53595c64.dir
+      size: 4208
       nfiles: 3
     - path: src/bank_marketing_ml/components/data_validation.py
       hash: md5
@@ -57,8 +57,8 @@ stages:
     outs:
     - path: artifacts/data_validation/drift_report/
       hash: md5
-      md5: 70254cf177553f3533d7f9340c24aa5e.dir
-      size: 4356905
+      md5: a4cff10c3380a360fe66f818ffbe8314.dir
+      size: 4440152
       nfiles: 2
     - path: artifacts/data_validation/validation_status/
       hash: md5
@@ -71,13 +71,13 @@ stages:
     deps:
     - path: config
       hash: md5
-      md5: 681956f698efc8ad58fb8091cbc156ef.dir
-      size: 3992
+      md5: 24bd2d8cfd225a9ba8f3c1be53595c64.dir
+      size: 4208
       nfiles: 3
     - path: src/bank_marketing_ml/components/data_transformation.py
       hash: md5
-      md5: b26ab6bd83f1bd7d622a697282a7348c
-      size: 7042
+      md5: f3b7edc3d7d1ea870c6bdad4d000a67d
+      size: 7469
     - path: src/bank_marketing_ml/pipeline/stage_03_data_transformation.py
       hash: md5
       md5: 5bfb3380d936d14a72754a2553352f64
@@ -91,13 +91,13 @@ stages:
     outs:
     - path: artifacts/data_transformation/transformed_arr/
       hash: md5
-      md5: 452c872ec1818e974a113d0860e01cc3.dir
-      size: 4465056
+      md5: 2826968b5c6686bc9bfeceaf5fa469c7.dir
+      size: 4554352
       nfiles: 2
     - path: artifacts/data_transformation/transforming_obj/
       hash: md5
-      md5: da006c883c1691b9deae23e875195ec5.dir
-      size: 6742
+      md5: cf904e04985e87f0aaf585e47d68dc31.dir
+      size: 428945
       nfiles: 2
   model_trainer:
     cmd: uv run src/bank_marketing_ml/pipeline/training_pipeline.py 
@@ -105,8 +105,8 @@ stages:
     deps:
     - path: config
       hash: md5
-      md5: 681956f698efc8ad58fb8091cbc156ef.dir
-      size: 3992
+      md5: 24bd2d8cfd225a9ba8f3c1be53595c64.dir
+      size: 4208
       nfiles: 3
     - path: src/bank_marketing_ml/components/model_trainer.py
       hash: md5
@@ -215,12 +215,12 @@ stages:
         MODEL_PARAMS.n_jobs: 1
         MODEL_PARAMS.n_trials: 30
         MODEL_PARAMS.random_state: 42
-        MODEL_PARAMS.scoring: recall
+        MODEL_PARAMS.scoring: f1
     outs:
     - path: artifacts/model_trainer/trained_model/
       hash: md5
-      md5: ffb4416a4fb27bd8ef5b5ba98be1ebd2.dir
-      size: 363205
+      md5: de8377f986d6f8d6c8e2644adb0a4506.dir
+      size: 487850
       nfiles: 1
   model_evaluation:
     cmd: uv run src/bank_marketing_ml/pipeline/training_pipeline.py 
@@ -228,8 +228,8 @@ stages:
     deps:
     - path: config
       hash: md5
-      md5: 681956f698efc8ad58fb8091cbc156ef.dir
-      size: 3992
+      md5: 24bd2d8cfd225a9ba8f3c1be53595c64.dir
+      size: 4208
       nfiles: 3
     - path: src/bank_marketing_ml/components/model_evaluation.py
       hash: md5
@@ -242,6 +242,6 @@ stages:
     outs:
     - path: artifacts/model_evaluation/evaluation_result/
       hash: md5
-      md5: 07c7f968f052b79a1569caf2373b8c98.dir
-      size: 230
+      md5: 33f0d617f0cb6c6d85ec0c91977a894a.dir
+      size: 229
       nfiles: 1

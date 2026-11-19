@@ -2,7 +2,7 @@ from src.bank_marketing_ml.exception import BankMarketingException
 from src.bank_marketing_ml import logger
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
-from sklearn.impute import SimpleImputer
+from sklearn.impute import SimpleImputer, KNNImputer
 from sklearn.preprocessing import (
     StandardScaler,
     OneHotEncoder,
@@ -28,70 +28,80 @@ class DataTransformation:
 
     def gather_transformation_objs(self):
         """
-        Builds and returns a preprocessing pipeline for numerical and categorical features.
-
-        This method creates the necessary transformation pipelines for numerical
-        and categorical features and combines them into a single preprocessor
-        object for use in the machine learning workflow.
-
-        Returns
-        -------
-        preprocessor : ColumnTransformer
-            A preprocessor object that applies the appropriate transformations
-            to numerical and categorical features.
+        Builds and returns preprocessing pipelines for numerical
+        and categorical features.
         """
         try:
-            logger.info(f"Fetching numerical and categorical columns.. ")
+            logger.info("Fetching numerical and categorical columns...")
 
             numerical_columns = self.config.numerical_columns
             categorical_columns = self.config.categorical_columns
 
+            # Validate feature columns
+            if set(numerical_columns) & set(categorical_columns):
+                raise ValueError("Numerical and categorical columns must not overlap.")
+
             if self.config.TRANSFORMATION_PARAMS.scaler == "standard":
                 scaler = StandardScaler()
-            else:
+
+            elif self.config.TRANSFORMATION_PARAMS.scaler == "minmax":
                 scaler = MinMaxScaler()
 
-            num_pipline = Pipeline(
+            else:
+                raise ValueError("Unsupported scaler")
+
+            if self.config.TRANSFORMATION_PARAMS.imputer == "simple":
+                num_imputer = SimpleImputer(
+                    strategy=self.config.TRANSFORMATION_PARAMS.num_imputer
+                )
+
+            elif self.config.TRANSFORMATION_PARAMS.imputer == "knn":
+                num_imputer = KNNImputer(
+                    n_neighbors=self.config.TRANSFORMATION_PARAMS.n_neighbors
+                )
+
+            else:
+                raise ValueError("Unsupported numerical imputer")
+
+            num_pipeline = Pipeline(
                 steps=[
-                    (
-                        "imputer",
-                        SimpleImputer(
-                            strategy=self.config.TRANSFORMATION_PARAMS.num_imputer
-                        ),
-                    ),
+                    ("imputer", num_imputer),
                     ("scaler", scaler),
                 ]
             )
-
+            cat_imputer = SimpleImputer(
+                strategy=self.config.TRANSFORMATION_PARAMS.cat_imputer
+            )
             if self.config.TRANSFORMATION_PARAMS.encoder == "onehot":
                 encoder = OneHotEncoder(sparse_output=False, handle_unknown="ignore")
-            else:
-                encoder = OrdinalEncoder()
 
+            elif self.config.TRANSFORMATION_PARAMS.encoder == "ordinal":
+                encoder = OrdinalEncoder(
+                    handle_unknown="use_encoded_value", unknown_value=-1
+                )
+
+            else:
+                raise ValueError("Unsupported categorical encoder")
             cat_pipeline = Pipeline(
                 steps=[
-                    (
-                        "imputer",
-                        SimpleImputer(
-                            strategy=self.config.TRANSFORMATION_PARAMS.cat_imputer
-                        ),
-                    ),
+                    ("imputer", cat_imputer),
                     ("encoder", encoder),
                 ]
             )
+            logger.info("Creating preprocessor...")
 
-            logger.info("Creating preprocessor... ")
             preprocessor = ColumnTransformer(
-                [
-                    ("num_pipeline", num_pipline, numerical_columns),
+                transformers=[
+                    ("num_pipeline", num_pipeline, numerical_columns),
                     ("cat_pipeline", cat_pipeline, categorical_columns),
                 ]
             )
 
             return preprocessor
+
         except Exception as e:
             logger.exception(
-                f"Exception occured while creating the transformation pipeline."
+                "Exception occurred while creating the transformation pipeline."
             )
             raise BankMarketingException(e, sys) from e
 
