@@ -2,6 +2,7 @@ from src.bank_marketing_ml.exception import BankMarketingException
 from src.bank_marketing_ml import logger
 
 from src.bank_marketing_ml.pipeline.stage_01_data_ingestion import DataIngestionTrainingPipeline
+from src.bank_marketing_ml.pipeline.stage_02_data_validation import DataValidationTrainingPipeline
 
 import mlflow
 import argparse
@@ -13,6 +14,10 @@ class TrainingPipeline:
             'data_ingestion':(
                 'Data Ingestion Stage',
                 DataIngestionTrainingPipeline
+            ),
+            'data_validation': (
+                'Data Validation Stage',
+                DataValidationTrainingPipeline
             )
         }
 
@@ -48,7 +53,8 @@ def main():
         default='all',
         choices=[
             'all',
-            'data_ingestion'
+            'data_ingestion',
+            'data_validation',
         ],
         help='Specify the stage name to be initialized.'
     )

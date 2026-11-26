@@ -76,7 +76,7 @@ class DataIngestion:
             df.to_csv(self.config.feature_dir, index=False)
 
             logger.info("Dropping the unwanted columns from the dataframe..")
-            drop_columns(df, self.config.drop_columns)
+            df = drop_columns(df, self.config.drop_columns)
 
             logger.info(f"Splitting the data into train and test")
             train, test = train_test_split(

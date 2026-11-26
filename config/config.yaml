@@ -10,7 +10,7 @@ data_validation:
   reference_path: artifacts/data_ingestion/ingested_data/train.csv
   current_path: artifacts/data_ingestion/ingested_data/test.csv
   drift_path: artifacts/data_validation/drift_report/
-  STATUS_FILE: artifacts/data_validation/validation_status/
+  STATUS_FILE: artifacts/data_validation/validation_status/status.json
 
 data_transformation:
   root_dir: artifacts/data_transformation/
